@@ -1,6 +1,5 @@
 # Project Management System
 Web application coded with Django for managing projects and tasks. The system allows project creation, task management, and status updates using a drag-and-drop interface. Users can monitor project progress through various tools and manage participants within the platform.
-![image](https://github.com/user-attachments/assets/ce86fc26-a17d-48ab-a319-620e753d9297)
 
 
 # Features

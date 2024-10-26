@@ -1,0 +1,69 @@
+{% extends "blog/base.html" %}
+
+{% block content %}
+<h2>Task management for the project : {{ post.title }}</h2>
+<div class="main-container">
+    <div class="tasks-container">
+
+        <div class="task-column" id="TODO">
+            <h2>TODO</h2>
+            {% for task in tasks_todo %}
+            <div class="task" draggable="true" data-task-id="{{ task.id }}">
+                {{ task.title }}
+            </div>
+            {% endfor %}
+        </div>
+
+        <div class="task-column" id="In Progress">
+            <h2>In Progress</h2>
+            {% for task in tasks_in_progress %}
+            <div class="task" draggable="true" data-task-id="{{ task.id }}">
+                {{ task.title }}
+            </div>
+            {% endfor %}
+        </div>
+
+        <div class="task-column" id="Done">
+            <h2>Done</h2>
+            {% for task in tasks_done %}
+            <div class="task" draggable="true" data-task-id="{{ task.id }}">
+                {{ task.title }}
+            </div>
+            {% endfor %}
+        </div>
+
+        <div class="task-column" id="In Revision">
+            <h2>In Revision</h2>
+            {% for task in tasks_in_revision %}
+            <div class="task" draggable="true" data-task-id="{{ task.id }}">
+                {{ task.title }}
+            </div>
+            {% endfor %}
+        </div>
+
+    </div>
+
+    
+        {% for participant, tasks in tasks_per_participant.items %}
+            <div class="participants-section">
+                <h4>{{ participant.username }}</h4>
+
+                {% if participant == post.chef %}
+                    <p>Rôle : Chef de projet</p>
+                {% else %}
+                    <p>Rôle : Participant</p>
+                {% endif %}
+
+                <ul class="participant-tasks">
+                    {% for task in tasks %}
+                        <li>{{ task.title }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        {% endfor %}
+
+           
+
+    </div>
+    
+{% endblock content %}

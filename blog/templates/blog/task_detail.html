@@ -1,0 +1,23 @@
+{% extends "blog/base.html" %}
+{% block content %}
+<div class="task-detail-container">
+
+    <h2>{{ task.title }}</h2>
+    
+    <div class="task-detail">
+        <strong>Description :</strong>
+        <p>{{ task.description }}</p>
+    </div>
+
+    <div class="task-assignee">
+        <strong>Assignée à :</strong>
+        <p>{{ task.assigned_to.username }}</p>
+    </div>
+
+    <div class="task-status">
+        <strong>Status :</strong>
+        <p>{{ task.status }}</p>
+    </div>
+
+</div>
+{% endblock %}
